@@ -63,7 +63,6 @@ k-mers are widely used in computational genomics as compact representations of b
 ---
 
 ## Results & Observations
-
 * Deep learning models successfully capture meaningful sequence patterns
 * Performance is highly dependent on encoding strategy
 
@@ -72,7 +71,20 @@ k-mers are widely used in computational genomics as compact representations of b
 This highlights that sequence modeling is not purely a modeling problem, but a representation problem.
 
 ---
+## Visual Results
 
+### Confusion Matrix
+The confusion matrix shows strong class-wise performance, with most predictions concentrated along the diagonal, indicating accurate classification across gene categories.
+
+<img width="1304" height="1190" alt="image" src="https://github.com/user-attachments/assets/d905ac94-cf9e-4c24-9507-97a3cda661c4" />
+
+---
+
+### Token Distribution Analysis
+This plot illustrates the distribution of k-mer token values at a specific sequence position, highlighting how different gene classes exhibit distinct statistical patterns.
+
+<img width="975" height="489" alt="image" src="https://github.com/user-attachments/assets/ba01e8f8-10b5-40b8-9432-268d912db3ab" />
+---
 ## Tech Stack
 
 * Python
