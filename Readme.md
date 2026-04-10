@@ -1,79 +1,137 @@
-DNA Sequence Classification with Deep Learning 🚀
-Welcome to this DNA sequence classification project — where cutting-edge deep learning meets genomics! Here, we build a powerful pipeline that takes raw DNA sequences and accurately predicts their gene types, unlocking insights crucial for research, diagnostics, and personalized medicine.
+# k-mer Based Gene Classification using Deep Learning
 
-What’s Inside?
-Smart Sequence Encoding: We transform raw nucleotide sequences into overlapping 4-mer tokens — essentially breaking DNA into “words” of length four — capturing rich biological patterns embedded in the data.
+## Overview
 
-Sophisticated Deep Learning Architecture: Our model expertly combines convolutional neural networks (CNNs) to detect local sequence motifs, bidirectional LSTM layers to understand long-range context in both directions, and an attention mechanism that highlights the most important sequence regions for classification.
+This project explores deep learning approaches for gene classification using k-mer encoded DNA sequences. The focus is on learning meaningful representations from structured sequential data and understanding how encoding strategies impact model performance.
 
-Solid Training Framework: Using early stopping and adaptive learning rate scheduling, the model trains efficiently while preventing overfitting. Performance is evaluated comprehensively with accuracy, precision, recall, and F1-score metrics to ensure balanced predictions across all gene classes.
+This work is based on a published research study on deep structured learning for gene classification.
 
-Insightful Visualizations: Explore training dynamics, confusion matrices, class-wise precision/recall heatmaps, and feature token distributions to truly understand the data and what the model has learned.
+Gene classification is a fundamental task in genomics, supporting applications such as disease detection, functional annotation, and precision medicine. ([AIUB][1])
 
-Classical Model Baselines: To appreciate the power of deep learning, we benchmark against traditional machine learning models like Random Forest, Gradient Boosting, SVM, Logistic Regression, and Naive Bayes — highlighting improvements made by our advanced model.
+---
 
-Why This Project Matters
-Accurate classification of DNA sequences is foundational in genomics, helping scientists uncover gene functions, diagnose diseases, and tailor medical treatments. This project demonstrates how modern deep learning methods can unlock hidden patterns in genetic data — pushing the boundaries of computational biology.
+## Problem
 
-Getting Started — Quick Setup Guide
-1. Clone the repository
-bash
-Copy
-Edit
-git clone https://github.com/Raif-Tanjim/Deep-Learning.git
-cd Deep-Learning/DNA_Sequence_DL
-This navigates you directly into the folder containing the DNA sequence classification code and data.
+DNA sequences are inherently complex, high-dimensional, and structured, making classification challenging.
 
-2. Create and activate a Python virtual environment
-It’s best practice to use an isolated environment to avoid dependency conflicts:
+Traditional methods struggle with:
 
-On Linux/macOS:
+* Capturing long-range dependencies
+* Representing sequence information effectively
+* Scaling to large datasets
 
-bash
-Copy
-Edit
-python3 -m venv venv
-source venv/bin/activate
-On Windows (PowerShell):
+Deep learning offers a way to automatically extract hierarchical features from sequence data, but its effectiveness depends heavily on how sequences are represented.
 
-powershell
-Copy
-Edit
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-3. Install required packages
-Install all necessary dependencies with:
+---
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-If you don’t have a requirements.txt file, install the core libraries manually:
+## Data Representation
 
-bash
-Copy
-Edit
-pip install numpy pandas scikit-learn tensorflow matplotlib seaborn joblib
-4. Download and organize the dataset
-Download the dataset from Kaggle DNA Sequence Prediction.
+### k-mer Encoding
 
-folder config:
-Deep-Learning/
-└── DNA_Sequence_DL/
-    └── DATA/
-        ├── train.csv
-        ├── validation.csv
-        └── test.csv
-Place the three CSV files (train.csv, validation.csv, and test.csv) inside this DATA folder.
+DNA sequences are transformed using **k-mer encoding**, where sequences are broken into overlapping subsequences of length *k*.
 
-5. Run the project
-You can run the full pipeline  via the Jupyter notebook:
-Hybrid (CNN+BiLSTM+Attention).ipynb
+* Converts symbolic DNA data into numerical form
+* Preserves local sequence structure
+* Enables machine learning models to process genomic data
+
+k-mers are widely used in computational genomics as compact representations of biological sequences. ([Wikipedia][2])
+
+---
+
+## System Approach
+
+### Models
+
+* Deep learning architectures for sequence classification
+* Combination of feature extraction and sequence modeling techniques
+
+### Pipeline
+
+* DNA sequence preprocessing
+* k-mer encoding
+* Model training and validation
+* Performance evaluation
+
+---
+
+## Challenges
+
+* High-dimensional feature space from k-mer representation
+* Capturing long-range dependencies in sequences
+* Overfitting due to structured data patterns
+
+---
+
+## Results & Observations
+
+* Deep learning models successfully capture meaningful sequence patterns
+* Performance is highly dependent on encoding strategy
+
+> Most limitations arise from how sequences are represented rather than the model architecture itself.
+
+This highlights that sequence modeling is not purely a modeling problem, but a representation problem.
+
+---
+
+## Tech Stack
+
+* Python
+* TensorFlow / PyTorch
+* NumPy, Pandas
+
+---
+
+## Repository Structure
+
+```
+├── notebooks/
+├── src/
+├── data/
+├── results/
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Note
+
+Large datasets are not included to keep the repository lightweight. The project can be reproduced using publicly available genomic datasets.
+
+---
+
+## Research Context
+
+Deep learning has shown strong potential in genomic analysis by learning complex patterns in biological sequences, enabling applications in diagnostics, drug discovery, and personalized medicine. ([arXiv][3])
+
+---
+
+## Citation
+
+If you use this work, please cite:
+
+```
+Raif Tanjim,
+"Deep Structured Learning for Gene Classification from k-mer Encoded DNA",
+2025.
+```
+
+📄 Paper link:
+https://www.researchgate.net/publication/400584303_Deep_Structured_Learning_for_Gene_Classification_from_k-mer_Encoded_DNA
+
+---
+
+## Future Work
+
+* Explore transformer-based sequence models
+* Improve sequence encoding strategies
+* Apply methods to larger genomic datasets
+
+---
+
+## Author
+
+Raif Tanjim
+AI & Robotics | Perception & Real-World Adaptive Systems
 
 
-Optional Tips
-GPU Support: If you have a compatible GPU, install the TensorFlow GPU version to accelerate training.
-
-Mixed Precision: The code uses mixed precision to speed up training — ensure your hardware supports it.
-
-Saving Outputs: Trained models, label encoders, and vocabularies will be saved in the repo folder for easy reuse.
